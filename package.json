@@ -1,6 +1,6 @@
 {
   "name": "@neoskop/dockerfile.js",
-  "version": "0.1.0-rc.0",
+  "version": "0.1.0-rc.1",
   "main": "dist/index.js",
   "author": "Mark Wecke <wecke@neoskop.de>",
   "license": "MIT",
