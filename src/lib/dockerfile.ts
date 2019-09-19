@@ -1,9 +1,9 @@
 import { Stage } from "./stage";
 
-export const DEFAULT_PREAMBLE = `******************************
-* Created with dockerfile.js *
-*        DO NOT EDIT         *
-******************************
+export const DEFAULT_PREAMBLE = `##############################
+# Created with dockerfile.js #
+#        DO NOT EDIT         #
+##############################
 
 `
 

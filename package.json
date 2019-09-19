@@ -8,8 +8,8 @@
   "scripts": {
     "prebuild": "npm test",
     "build": "rimraf dist && tsc",
-    "test": "jest",
     "fb": "flow-bump",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage --coverage-reporters html --coverage-reporters lcov",
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
