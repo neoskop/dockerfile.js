@@ -1,0 +1,2 @@
+options:
+    commitMessage: 'chore(release): bump to version %VERSION%'

@@ -9,6 +9,7 @@
     "prebuild": "npm test",
     "build": "rimraf dist && tsc",
     "test": "jest",
+    "fb": "flow-bump",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage --coverage-reporters html --coverage-reporters lcov",
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
@@ -23,6 +24,7 @@
     "yargs": "14.0.0"
   },
   "devDependencies": {
+    "@neoskop/flow-bump": "1.0.0",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
     "@types/yargs": "13.0.2",
