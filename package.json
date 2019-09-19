@@ -17,6 +17,9 @@
     "publish-latest-only": "npm run build && npm publish",
     "publish-latest": "npm run publish-latest-only && npm dist-tag add `jq '.name' package.json -r`s@`jq '.version' package.json -r` next"
   },
+  "bin": {
+    "dockerfile-js": "bin/cli.js"
+  },
   "dependencies": {
     "ts-node": "8.1.0",
     "tslib": "1.10.0",
