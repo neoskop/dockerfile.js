@@ -33,6 +33,18 @@ module.exports = dockerfile().stages(
 );
 ```
 
+Static, factory and async factory export possible.
+
+```typescript
+export default dockerfile().stages(...);
+export default () => dockerfile().stages(...);
+export default async () => dockerfile().stages(...);
+
+module.exports dockerfile().stages(...);
+module.exports () => dockerfile().stages(...);
+module.exports async () => dockerfile().stages(...);
+```
+
 ## Testing
 
 This package uses Jest with the ts-jest extension for testing. The following test commands are available

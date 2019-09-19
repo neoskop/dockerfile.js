@@ -4,8 +4,8 @@ const nodeImage = image('node', { tag: '10-alpine' });
 
 const wd = workdir('/opt/app');
 
-const base = stage()
-    .from(from(nodeImage))
+const base = stage('base')
+    .from(nodeImage)
     .commands(
         wd,
         copy('package.json', 'package.raw.json'),
@@ -28,4 +28,4 @@ const build = stage()
         run(`echo "${npmrc}" > /root/.npmrc`)
     )
 
-export default dockerfile().stages(base, build);
+export default async () => dockerfile().stages(base, build);

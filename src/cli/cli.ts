@@ -1,5 +1,6 @@
 import yargs from 'yargs';
 import path from 'path';
+import fs from 'fs';
 import { Dockerfile } from '../lib/dockerfile';
 
 export function cli() {
@@ -11,23 +12,42 @@ export function cli() {
     }).command('$0 <file>', 'Generate Dockerfile', args => args.positional('file', {
         type: 'string',
         required: true
-    }), argv => {
-        if(argv.typescript || argv.file!.match(/\.ts$/)) {
-            require('ts-node/register');
-        }
+    }), async argv => {
+        try {
+            if (argv.typescript || argv.file!.match(/\.ts$/)) {
+                require('ts-node/register');
+            }
 
-        let content = require(path.resolve(argv.file!));
+            const file = path.resolve(argv.file!);
 
-        if('default' in content) {
-            content = content.default;
-        }
+            if(!fs.existsSync(file)) {
+                throw new Error(`Cannot find file '${file}'`);
+            }
 
-        if(!(content instanceof Dockerfile)) {
-            throw new Error('Expected Dockerfile as default export');
+            let content = require(file);
+
+            if ('default' in content) {
+                content = content.default;
+            }
+
+            if (typeof content === 'function') {
+                content = content();
+            }
+
+            content = await content;
+
+            if (!(content instanceof Dockerfile)) {
+                throw new Error('Expected Dockerfile as default export');
+            }
+
+            process.stdout.write(content.toString());
+        } catch (e) {
+            console.error(e.message);
+            console.log();
+            yargs.showHelp();
+            process.exit(1);
         }
-        
-        process.stdout.write(content.toString());
     }).parse();
 
-    
+
 }

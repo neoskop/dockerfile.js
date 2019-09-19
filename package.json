@@ -1,6 +1,20 @@
 {
   "name": "@neoskop/dockerfile.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Write configurable, scriptable, reusable dockerfiles in Typescript or plain Javascript.",
+  "keywords": [
+    "docker",
+    "dockerfile",
+    "typescript",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neoskop/dockerfile.js"
+  },
+  "bugs": {
+    "url": "https://github.com/neoskop/dockerfile.js/issues"
+  },
   "main": "dist/index.js",
   "author": "Mark Wecke <wecke@neoskop.de>",
   "license": "MIT",
