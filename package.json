@@ -1,0 +1,33 @@
+{
+  "name": "@neoskop/dockerfile.js",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "author": "Mark Wecke <wecke@neoskop.de>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "prebuild": "npm test",
+    "build": "rimraf dist && tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage --coverage-reporters html --coverage-reporters lcov",
+    "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
+    "publish-next": "npm run build && npm publish --tag next",
+    "publish-latest-only": "npm run build && npm publish",
+    "publish-latest": "npm run publish-latest-only && npm dist-tag add `jq '.name' package.json -r`s@`jq '.version' package.json -r` next"
+  },
+  "dependencies": {
+    "ts-node": "8.1.0",
+    "tslib": "1.10.0",
+    "typescript": "3.4.3",
+    "yargs": "14.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.5",
+    "@types/yargs": "13.0.2",
+    "jest": "24.9.0",
+    "rimraf": "3.0.0",
+    "ts-jest": "24.1.0"
+  }
+}
