@@ -1,8 +1,11 @@
 import { From } from './commands/from';
-import { Fromable } from './interfaces/fromable';
 
 export interface IDockerCommand {
     toDockerCommand(stage: Stage): string;
+}
+
+export interface Fromable {
+    getFromName(): string;
 }
 
 

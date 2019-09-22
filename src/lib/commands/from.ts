@@ -1,5 +1,4 @@
-import { Fromable } from '../interfaces/fromable';
-import { Stage, IDockerCommand } from '../stage';
+import { Stage, IDockerCommand, Fromable } from '../stage';
 
 
 /**

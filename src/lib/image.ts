@@ -1,4 +1,4 @@
-import { Fromable } from "./interfaces/fromable";
+import { Fromable } from './stage';
 
 export interface IImageOptions {
     digest?: string;

@@ -1,6 +1,5 @@
-import { Image } from '../image';
+import { Fromable } from '../stage';
 import { Adding, IAddingOptions } from './adding';
-import { Fromable } from '../interfaces/fromable';
 
 export interface ICopyOptions extends IAddingOptions {
     from?: string|Fromable;
