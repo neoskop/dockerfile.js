@@ -1,5 +1,5 @@
-import { IDockerCommand } from "../interfaces/docker-command";
 import { Cmd } from './cmd';
+import { IDockerCommand } from '../stage';
 
 export interface IHealthcheckOptions {
     interval?: string;

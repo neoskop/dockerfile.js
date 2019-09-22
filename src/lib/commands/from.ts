@@ -1,5 +1,5 @@
-import { IDockerCommand } from '../interfaces/docker-command';
 import { Fromable } from '../interfaces/fromable';
+import { Stage, IDockerCommand } from '../stage';
 
 
 /**
@@ -10,12 +10,8 @@ export class From implements IDockerCommand {
     constructor(protected readonly image : string|Fromable) {
     }
 
-    toDockerCommand(alias?: string) {
-        if(alias) {
-            return `FROM ${typeof this.image === 'string' ? this.image :this.image.getFromName() } AS ${alias}`;
-        }
-
-        return `FROM ${typeof this.image === 'string' ? this.image :this.image.getFromName() }`;
+    toDockerCommand(stage : Stage) {
+        return `FROM ${typeof this.image === 'string' ? this.image :this.image.getFromName() } AS ${stage.getName()}`;
     }
 }
 

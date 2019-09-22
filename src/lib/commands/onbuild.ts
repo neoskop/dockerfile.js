@@ -1,4 +1,5 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand, Stage } from '../stage';
+import { Cmd } from './cmd';
 
 
 /**
@@ -6,12 +7,12 @@ import { IDockerCommand } from "../interfaces/docker-command";
  */
 export class Onbuild implements IDockerCommand {
 
-    constructor(public readonly command : IDockerCommand) {
+    constructor(public readonly command : Cmd) {
 
     }
 
-    toDockerCommand() {
-        return `ONBUILD ${this.command.toDockerCommand()}`;
+    toDockerCommand(stage: Stage) {
+        return `ONBUILD ${this.command.toDockerCommand(stage)}`;
     }
 }
 

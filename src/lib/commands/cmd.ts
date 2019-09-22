@@ -1,4 +1,4 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand, Stage } from '../stage';
 
 
 /**
@@ -7,7 +7,7 @@ import { IDockerCommand } from "../interfaces/docker-command";
 export class Cmd implements IDockerCommand {
     constructor(public readonly command : string | string[]) {}
 
-    toDockerCommand() {
+    toDockerCommand(_stage?: Stage) {
         let cmd = `CMD `;
 
         if(Array.isArray(this.command)) {

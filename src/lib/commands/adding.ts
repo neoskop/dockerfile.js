@@ -1,4 +1,4 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand } from '../stage';
 
 export interface IAddingOptions {
     chown?: [string | number, string | number] | string | number;

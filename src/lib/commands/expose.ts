@@ -1,4 +1,4 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand } from '../stage';
 
 export type ExposeProtocol = 'tcp' | 'udp';
 

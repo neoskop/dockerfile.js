@@ -1,4 +1,4 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand } from '../stage';
 
 /**
  * @see https://docs.docker.com/engine/reference/builder/#entrypoint

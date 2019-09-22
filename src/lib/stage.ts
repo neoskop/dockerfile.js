@@ -1,6 +1,10 @@
 import { From } from './commands/from';
-import { IDockerCommand } from './interfaces/docker-command';
 import { Fromable } from './interfaces/fromable';
+
+export interface IDockerCommand {
+    toDockerCommand(stage: Stage): string;
+}
+
 
 export class Stage implements Fromable {
     protected _from?: From;
@@ -8,6 +12,10 @@ export class Stage implements Fromable {
 
     constructor(protected name: string = 'S' + (Math.random() * 0xFFFFFFFF >>> 0).toString(16).padStart(8, '0')) {
 
+    }
+
+    getName() {
+        return this.name;
     }
 
     getFromName() {
@@ -35,7 +43,7 @@ export class Stage implements Fromable {
     }
 
     toString() {
-        return [ this.from()!.toDockerCommand(this.getFromName()), '', ...this._commands.map(cmd => cmd.toDockerCommand() ) ].join('\n');
+        return [ this.from()!.toDockerCommand(this), '', ...this._commands.map(cmd => cmd.toDockerCommand(this) ) ].join('\n');
     }
 }
 

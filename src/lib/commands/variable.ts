@@ -1,4 +1,4 @@
-import { IDockerCommand } from "../interfaces/docker-command";
+import { IDockerCommand } from '../stage';
 
 export abstract class Variable implements IDockerCommand {
     protected readonly abstract cmd : string;

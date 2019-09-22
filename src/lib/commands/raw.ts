@@ -1,4 +1,4 @@
-import { IDockerCommand } from '../interfaces/docker-command';
+import { IDockerCommand } from '../stage';
 
 export class Raw implements IDockerCommand {
     constructor(protected raw : string) {}

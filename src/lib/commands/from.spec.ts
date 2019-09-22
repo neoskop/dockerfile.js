@@ -1,19 +1,12 @@
 import { from } from './from';
+import { Stage } from '../stage';
 
 describe('From', () => {
     it('should render string', () => {
-        expect(from('node').toDockerCommand()).toEqual(`FROM node`);
+        expect(from('node').toDockerCommand({ getName() { return 'als' }} as Stage)).toEqual(`FROM node AS als`);
     });
 
     it('should render fromable', () => {
-        expect(from({ getFromName() { return 'node:10' }}).toDockerCommand()).toEqual(`FROM node:10`);
-    });
-
-    it('should render string with alias', () => {
-        expect(from('node').toDockerCommand('als')).toEqual(`FROM node AS als`);
-    });
-
-    it('should render fromable with alias', () => {
-        expect(from({ getFromName() { return 'node:10' }}).toDockerCommand('als')).toEqual(`FROM node:10 AS als`);
+        expect(from({ getFromName() { return 'node:10' }}).toDockerCommand({ getName() { return 'als' }} as Stage)).toEqual(`FROM node:10 AS als`);
     });
 })
