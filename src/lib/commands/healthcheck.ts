@@ -1,5 +1,5 @@
 import { Cmd } from './cmd';
-import { IDockerCommand } from '../stage';
+import { IDockerCommand, StageBuildContext } from '../stage';
 
 export interface IHealthcheckOptions {
     interval?: string;
@@ -32,11 +32,11 @@ export class Healthcheck implements IDockerCommand {
         return parameters
     }
 
-    toDockerCommand() {
+    toDockerCommand(context : StageBuildContext) {
         if (this.command === 'NONE') {
             return 'HEALTHCHECK NONE';
         }
-        return `HEALTHCHECK${this.getParameters()} ${this.command.toDockerCommand()}`;
+        return `HEALTHCHECK${this.getParameters()} ${this.command.toDockerCommand(context)}`;
     }
 }
 

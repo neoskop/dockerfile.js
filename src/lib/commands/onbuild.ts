@@ -1,4 +1,4 @@
-import { IDockerCommand, Stage } from '../stage';
+import { IDockerCommand, StageBuildContext } from '../stage';
 import { Cmd } from './cmd';
 
 
@@ -11,8 +11,8 @@ export class Onbuild implements IDockerCommand {
 
     }
 
-    toDockerCommand(stage: Stage) {
-        return `ONBUILD ${this.command.toDockerCommand(stage)}`;
+    toDockerCommand(context : StageBuildContext) {
+        return `ONBUILD ${this.command.toDockerCommand(context)}`;
     }
 }
 

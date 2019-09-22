@@ -1,7 +1,12 @@
 import { From } from './commands/from';
+import { Dockerfile, DockerfileBuildContext } from './dockerfile';
+
+export interface StageBuildContext extends DockerfileBuildContext {
+    stage: Stage;
+}
 
 export interface IDockerCommand {
-    toDockerCommand(stage: Stage): string;
+    toDockerCommand(context : StageBuildContext): string;
 }
 
 export interface Fromable {
@@ -45,8 +50,13 @@ export class Stage implements Fromable {
         return this._commands;
     }
 
-    toString() {
-        return [ this.from()!.toDockerCommand(this), '', ...this._commands.map(cmd => cmd.toDockerCommand(this) ) ].join('\n');
+    toString(context : DockerfileBuildContext) {
+        const buildContext : StageBuildContext = {
+            ...context,
+            stage: this
+        }
+
+        return [ this.from()!.toDockerCommand(buildContext), '', ...this._commands.map(cmd => cmd.toDockerCommand(buildContext) ) ].join('\n');
     }
 }
 

@@ -1,9 +1,9 @@
-import { onbuild } from './onbuild';
 import { Cmd } from './cmd';
-import { Stage } from '../stage';
+import { onbuild } from './onbuild';
+import { StageBuildContext } from '../stage';
 
 describe('Onbuild', () => {
     it('should render command', () => {
-        expect(onbuild({ toDockerCommand() { return '<COMMAND>' } } as Cmd).toDockerCommand({} as Stage)).toEqual('ONBUILD <COMMAND>');
+        expect(onbuild({ toDockerCommand() { return '<COMMAND>' } } as unknown as Cmd).toDockerCommand({} as StageBuildContext)).toEqual('ONBUILD <COMMAND>');
     });
 })

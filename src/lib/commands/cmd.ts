@@ -1,4 +1,4 @@
-import { IDockerCommand, Stage } from '../stage';
+import { IDockerCommand, StageBuildContext } from '../stage';
 
 
 /**
@@ -7,7 +7,7 @@ import { IDockerCommand, Stage } from '../stage';
 export class Cmd implements IDockerCommand {
     constructor(public readonly command : string | string[]) {}
 
-    toDockerCommand(_stage?: Stage) {
+    toDockerCommand(_context : StageBuildContext) {
         let cmd = `CMD `;
 
         if(Array.isArray(this.command)) {

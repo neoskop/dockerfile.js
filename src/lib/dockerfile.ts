@@ -7,6 +7,10 @@ export const DEFAULT_PREAMBLE = `##############################
 
 `
 
+export interface DockerfileBuildContext {
+    dockerfile: Dockerfile;
+}
+
 export interface DockerfileOptions {
     preamble: string;
 }
@@ -35,7 +39,11 @@ export class Dockerfile {
     }
 
     toString() {
-        return this._options.preamble + this._stages.map(stage => stage.toString()).join('\n\n');
+        const buildContext = {
+            dockerfile: this
+        };
+
+        return this._options.preamble + this._stages.map(stage => stage.toString(buildContext)).join('\n\n');
     }
 }
 

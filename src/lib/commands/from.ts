@@ -1,4 +1,4 @@
-import { Stage, IDockerCommand, Fromable } from '../stage';
+import { Fromable, IDockerCommand, StageBuildContext } from '../stage';
 
 
 /**
@@ -9,7 +9,7 @@ export class From implements IDockerCommand {
     constructor(protected readonly image : string|Fromable) {
     }
 
-    toDockerCommand(stage : Stage) {
+    toDockerCommand({ stage } : StageBuildContext) {
         return `FROM ${typeof this.image === 'string' ? this.image :this.image.getFromName() } AS ${stage.getName()}`;
     }
 }
