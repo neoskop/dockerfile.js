@@ -101,11 +101,11 @@ This package follows [SemVer](https://semver.org/) and uses [@neoskop/flow-bump]
 
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details
 
-[travis-master-image]: https://img.shields.io/travis/neoskop/adamant/master.svg
-[travis-master-url]: https://travis-ci.org/neoskop/adamant
-[travis-develop-image]: https://img.shields.io/travis/neoskop/adamant/develop.svg
-[travis-develop-url]: https://travis-ci.org/neoskop/adamant
-[coveralls-master-image]: https://coveralls.io/repos/github/neoskop/adamant/badge.svg?branch=master
-[coveralls-master-url]: https://coveralls.io/github/neoskop/adamant?branch=master
-[coveralls-develop-image]: https://coveralls.io/repos/github/neoskop/adamant/badge.svg?branch=develop
-[coveralls-develop-url]: https://coveralls.io/github/neoskop/adamant?branch=develop
+[travis-master-image]: https://img.shields.io/travis/neoskop/dockerfile.js/master.svg
+[travis-master-url]: https://travis-ci.org/neoskop/dockerfile.js
+[travis-develop-image]: https://img.shields.io/travis/neoskop/dockerfile.js/develop.svg
+[travis-develop-url]: https://travis-ci.org/neoskop/dockerfile.js
+[coveralls-master-image]: https://coveralls.io/repos/github/neoskop/dockerfile.js/badge.svg?branch=master
+[coveralls-master-url]: https://coveralls.io/github/neoskop/dockerfile.js?branch=master
+[coveralls-develop-image]: https://coveralls.io/repos/github/neoskop/dockerfile.js/badge.svg?branch=develop
+[coveralls-develop-url]: https://coveralls.io/github/neoskop/dockerfile.js?branch=develop
