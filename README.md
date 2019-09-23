@@ -2,6 +2,14 @@
 
 Write configurable, scriptable, reusable dockerfiles in Typescript or plain Javascript.
 
+Master  
+[![Travis master][travis-master-image]][travis-master-url]
+[![Test coverage master][coveralls-master-image]][coveralls-master-url]
+
+Develop  
+[![Travis develop][travis-develop-image]][travis-develop-url]
+[![Test coverage develop][coveralls-develop-image]][coveralls-develop-url]
+
 ## Usage
 
 ### CLI
@@ -92,3 +100,12 @@ This package follows [SemVer](https://semver.org/) and uses [@neoskop/flow-bump]
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details
+
+[travis-master-image]: https://img.shields.io/travis/neoskop/adamant/master.svg
+[travis-master-url]: https://travis-ci.org/neoskop/adamant
+[travis-develop-image]: https://img.shields.io/travis/neoskop/adamant/develop.svg
+[travis-develop-url]: https://travis-ci.org/neoskop/adamant
+[coveralls-master-image]: https://coveralls.io/repos/github/neoskop/adamant/badge.svg?branch=master
+[coveralls-master-url]: https://coveralls.io/github/neoskop/adamant?branch=master
+[coveralls-develop-image]: https://coveralls.io/repos/github/neoskop/adamant/badge.svg?branch=develop
+[coveralls-develop-url]: https://coveralls.io/github/neoskop/adamant?branch=develop
