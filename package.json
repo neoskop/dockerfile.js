@@ -22,7 +22,7 @@
   "scripts": {
     "prebuild": "npm test",
     "build": "rimraf dist && tsc",
-    "postbuild": "cp README.md dist && cp LICENSE.md dist && cp package.json dist",
+    "postbuild": "cp README.md dist && cp LICENSE.md dist && cp package.json dist && cp -r bin dist/bin",
     "fb": "flow-bump",
     "test": "jest",
     "test:watch": "jest --watch",
