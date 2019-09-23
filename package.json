@@ -1,6 +1,6 @@
 {
   "name": "@neoskop/dockerfile.js",
-  "version": "0.2.0-rc.0",
+  "version": "0.2.0-rc.1",
   "description": "Write configurable, scriptable, reusable dockerfiles in Typescript or plain Javascript.",
   "keywords": [
     "docker",
