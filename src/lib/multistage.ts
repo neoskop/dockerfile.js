@@ -13,6 +13,10 @@ export class Multistage {
         return this._stages;
     }
 
+    getStage(name: string) {
+        return [ ...this ].find(s => s.getName() === name);
+    }
+
     *[Symbol.iterator](): Iterator<Stage> {
         for(const stage of this.stages()) {
             if(stage instanceof Multistage) {
