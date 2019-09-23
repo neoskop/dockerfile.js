@@ -1,4 +1,5 @@
 import { Stage } from "./stage";
+import { Multistage } from './multistage';
 
 export const DEFAULT_PREAMBLE = `##############################
 # Created with dockerfile.js #
@@ -15,11 +16,11 @@ export interface DockerfileOptions {
     preamble: string;
 }
 
-export class Dockerfile {
-    protected _stages : Stage[] = [];
+export class Dockerfile extends Multistage {
     protected _options : DockerfileOptions;
 
     constructor(options : Partial<DockerfileOptions> = {}) {
+        super();
         this._options = {
             ...{
                 preamble: DEFAULT_PREAMBLE
@@ -28,22 +29,12 @@ export class Dockerfile {
         };
     }
 
-    stages() : Stage[];
-    stages(stage: Stage, ...stages : Stage[]) : this;
-    stages(stage?: Stage, ...stages : Stage[]) : this | Stage[] {
-        if(stage) {
-            this._stages.push(stage, ...stages);
-            return this;
-        }
-        return this._stages;
-    }
-
     toString() {
         const buildContext = {
             dockerfile: this
         };
 
-        return this._options.preamble + this._stages.map(stage => stage.toString(buildContext)).join('\n\n');
+        return this._options.preamble + [ ...this ].map(stage => stage.toString(buildContext)).join('\n\n');
     }
 }
 

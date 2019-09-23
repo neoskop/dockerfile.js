@@ -23,4 +23,5 @@ export * from './lib/commands/workdir';
 
 export * from './lib/image';
 export * from './lib/stage';
+export * from './lib/multistage';
 export * from './lib/dockerfile';

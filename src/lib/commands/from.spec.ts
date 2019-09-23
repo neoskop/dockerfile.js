@@ -1,5 +1,5 @@
 import { from } from './from';
-import { Stage, StageBuildContext } from '../stage';
+import { Stage, StageBuildContext, stage } from '../stage';
 import { Dockerfile } from '../dockerfile';
 
 describe('From', () => {
@@ -8,6 +8,6 @@ describe('From', () => {
     });
 
     it('should render fromable', () => {
-        expect(from({ getFromName() { return 'node:10' }}).toDockerCommand({ stage: { getName() { return 'als' }} as Stage } as StageBuildContext)).toEqual(`FROM node:10 AS als`);
+        expect(from(stage('node:10')).toDockerCommand({ stage: { getName() { return 'als' }} as Stage } as StageBuildContext)).toEqual(`FROM node:10 AS als`);
     });
 })
