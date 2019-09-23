@@ -15,20 +15,21 @@
   "bugs": {
     "url": "https://github.com/neoskop/dockerfile.js/issues"
   },
-  "main": "dist/index.js",
+  "main": "./index.js",
   "author": "Mark Wecke <wecke@neoskop.de>",
   "license": "MIT",
   "private": false,
   "scripts": {
     "prebuild": "npm test",
     "build": "rimraf dist && tsc",
+    "postbuild": "cp README.md dist && cp LICENSE.md dist && cp package.json dist",
     "fb": "flow-bump",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage --coverage-reporters html --coverage-reporters lcov",
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
-    "publish-next": "npm run build && npm publish --tag next",
-    "publish-latest-only": "npm run build && npm publish",
+    "publish-next": "npm run build && npm publish dist --tag next",
+    "publish-latest-only": "npm run build && npm publish dist",
     "publish-latest": "npm run publish-latest-only && npm dist-tag add `jq '.name' package.json -r`@`jq '.version' package.json -r` next"
   },
   "bin": {
