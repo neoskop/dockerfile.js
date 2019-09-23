@@ -45,6 +45,37 @@ module.exports () => dockerfile().stages(...);
 module.exports async () => dockerfile().stages(...);
 ```
 
+### Documentation
+
+See [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/) for general dockerfile usage. Documentation for dockerfile.js not yet available. Look at the sources for usage details.
+
+**Commands**
+
+* [ADD](./src/lib/add.ts)
+* [ARG](./src/lib/arg.ts)
+* [CMD](./src/lib/cmd.ts)
+* [COPY](./src/lib/copy.ts)
+* [ENTRYPOINT](./src/lib/entrypoint.ts)
+* [ENV](./src/lib/env.ts)
+* [EXPOSE](./src/lib/expose.ts)
+* [FROM](./src/lib/from.ts)
+* [HEALTHCHECK](./src/lib/healthcheck.ts)
+* [LABEL](./src/lib/label.ts)
+* [ONBUILD](./src/lib/onbuild.ts)
+* [RUN](./src/lib/run.ts)
+* [STOPSIGNAL](./src/lib/stopsignal.ts)
+* [USER](./src/lib/user.ts)
+* [VOLUME](./src/lib/volume.ts)
+* [WORKDIR](./src/lib/workdir.ts)
+* [RAW](./src/lib/raw.ts)
+
+**Misc**
+* [Dockfile](./src/dockerfile.ts)
+* [Stage](./src/stage.ts)
+* [Multistage](./src/multistage.ts)
+* [Image](./src/image.ts)
+
+
 ## Testing
 
 This package uses Jest with the ts-jest extension for testing. The following test commands are available
