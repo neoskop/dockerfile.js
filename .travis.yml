@@ -6,3 +6,4 @@ node_js:
   - "11"
   - "12"
 cache: yarn
+script: yarn test:cov && cat coverage/lcov.info | ./node_modules/.bin/coveralls   
