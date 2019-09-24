@@ -10,6 +10,10 @@ export function variableTests(cmd : string, factory : (...params : ConstructorPa
         expect(factory('test', 'default"value').toDockerCommand()).toEqual(`${cmd} test="default\\"value"`);
     });
 
+    it('should output variable w/ empty string as default value', () => {
+        expect(factory('test', '').toDockerCommand()).toEqual(`${cmd} test=""`);
+    });
+
     it('should toString variable name', () => {
         expect(factory('foobar').toString()).toEqual('${foobar}');
     })

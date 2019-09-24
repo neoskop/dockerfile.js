@@ -13,7 +13,7 @@ export abstract class Variable implements IDockerCommand {
     toDockerCommand() {
         let cmd = `${this.cmd} ${this.name}`;
 
-        if(this.defaultValue) {
+        if(null != this.defaultValue) {
             cmd += `=${JSON.stringify(this.defaultValue)}`;
         }
 
