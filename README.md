@@ -59,29 +59,30 @@ See [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/) fo
 
 **Commands**
 
-* [ADD](./src/lib/add.ts)
-* [ARG](./src/lib/arg.ts)
-* [CMD](./src/lib/cmd.ts)
-* [COPY](./src/lib/copy.ts)
-* [ENTRYPOINT](./src/lib/entrypoint.ts)
-* [ENV](./src/lib/env.ts)
-* [EXPOSE](./src/lib/expose.ts)
-* [FROM](./src/lib/from.ts)
-* [HEALTHCHECK](./src/lib/healthcheck.ts)
-* [LABEL](./src/lib/label.ts)
-* [ONBUILD](./src/lib/onbuild.ts)
-* [RUN](./src/lib/run.ts)
-* [STOPSIGNAL](./src/lib/stopsignal.ts)
-* [USER](./src/lib/user.ts)
-* [VOLUME](./src/lib/volume.ts)
-* [WORKDIR](./src/lib/workdir.ts)
-* [RAW](./src/lib/raw.ts)
+* [ADD](./src/lib/commands/add.ts)
+* [ARG](./src/lib/commands/arg.ts)
+* [CMD](./src/lib/commands/cmd.ts)
+* [COPY](./src/lib/commands/copy.ts)
+* [ENTRYPOINT](./src/lib/commands/entrypoint.ts)
+* [ENV](./src/lib/commands/env.ts)
+* [EXPOSE](./src/lib/commands/expose.ts)
+* [FROM](./src/lib/commands/from.ts)
+* [HEALTHCHECK](./src/lib/commands/healthcheck.ts)
+* [LABEL](./src/lib/commands/label.ts)
+* [ONBUILD](./src/lib/commands/onbuild.ts)
+* [RUN](./src/lib/commands/run.ts)
+* [STOPSIGNAL](./src/lib/commands/stopsignal.ts)
+* [USER](./src/lib/commands/user.ts)
+* [VOLUME](./src/lib/commands/volume.ts)
+* [WORKDIR](./src/lib/commands/workdir.ts)
+* [RAW](./src/lib/commands/raw.ts)
 
 **Misc**
-* [Dockfile](./src/dockerfile.ts)
-* [Stage](./src/stage.ts)
-* [Multistage](./src/multistage.ts)
-* [Image](./src/image.ts)
+
+* [Dockfile](./src/lib/dockerfile.ts)
+* [Stage](./src/lib/stage.ts)
+* [Multistage](./src/lib/multistage.ts)
+* [Image](./src/lib/image.ts)
 
 
 ## Testing
