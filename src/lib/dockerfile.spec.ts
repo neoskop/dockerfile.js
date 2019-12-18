@@ -20,7 +20,7 @@ describe('Dockerfile', () => {
             stage()
                 .from(image('node'))
                 .commands(run('node --version'))
-        ).toString()).toEqual(DEFAULT_PREAMBLE + 'FROM node AS S7fffffff\n\nRUN node --version')
+        ).toString()).toEqual(DEFAULT_PREAMBLE + 'FROM node AS S00000001\n\nRUN node --version')
     });
 
     it('should generate dockerfile with custom preamble', () => {
@@ -28,7 +28,7 @@ describe('Dockerfile', () => {
             stage()
                 .from(image('node'))
                 .commands(run('node --version'))
-        ).toString()).toEqual('# CUSTOM PREAMBLE\nFROM node AS S7fffffff\n\nRUN node --version')
+        ).toString()).toEqual('# CUSTOM PREAMBLE\nFROM node AS S00000002\n\nRUN node --version')
     });
 
     it('should return stages', () => {

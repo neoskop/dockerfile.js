@@ -13,12 +13,13 @@ export interface Fromable {
     getFromName(): string;
 }
 
+let stageUniqueId = 0;
 
 export class Stage implements Fromable {
     protected _from?: From;
     protected _commands : IDockerCommand[] = [];
 
-    constructor(protected name: string = 'S' + (Math.random() * 0xFFFFFFFF >>> 0).toString(16).padStart(8, '0')) {
+    constructor(protected name: string = 'S' + (++stageUniqueId).toString(16).padStart(8, '0')) {
 
     }
 

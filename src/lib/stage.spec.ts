@@ -19,7 +19,7 @@ describe('Stage', () => {
     it('should generate stage', () => {
         expect(stage()
             .from(image('node'))
-            .commands(run('node --version')).toString({} as DockerfileBuildContext)).toEqual('FROM node AS S7fffffff\n\nRUN node --version')
+            .commands(run('node --version')).toString({} as DockerfileBuildContext)).toEqual('FROM node AS S00000001\n\nRUN node --version')
     });
 
     it('should generate stage with name', () => {
