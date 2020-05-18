@@ -44,7 +44,11 @@ export class Dockerfile extends Multistage {
             dockerfile: this
         };
 
-        return this._options.preamble + this._args.map(arg => arg.toDockerCommand()).join('\n') + '\n\n' + [ ...this ].map(stage => stage.toString(buildContext)).join('\n\n');
+        return [
+            this._options.preamble,
+            this._args.map(arg => arg.toDockerCommand()).join('\n'),
+            ...this.stages().map(stage => stage.toString(buildContext))
+        ].filter(Boolean).join('\n\n')
     }
 }
 
