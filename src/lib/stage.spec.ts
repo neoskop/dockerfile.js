@@ -1,5 +1,6 @@
 import { from } from './commands/from';
 import { run } from './commands/run';
+import { arg } from './commands/arg';
 import { DockerfileBuildContext } from './dockerfile';
 import { image } from './image';
 import { stage } from './stage';
@@ -36,5 +37,12 @@ describe('Stage', () => {
         expect(stage('stagename')
             .from(from({ getFromName() { return 'imagename' }}))
             .commands(run('node --version')).toString({} as DockerfileBuildContext)).toEqual('FROM imagename AS stagename\n\nRUN node --version')
+    });
+
+    it('should generate stage with pre args', () => {
+        expect(stage('stagename')
+            .from(from({ getFromName() { return 'imagename' }}))
+            .preArgs(arg('FOOBAR', 'baz'))
+            .commands(run('node --version')).toString({} as DockerfileBuildContext)).toEqual('ARG FOOBAR="baz"\nFROM imagename AS stagename\n\nRUN node --version')
     })
 })
