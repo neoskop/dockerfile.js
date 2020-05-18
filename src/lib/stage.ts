@@ -18,7 +18,6 @@ let stageUniqueId = 0;
 
 export class Stage implements Fromable {
     protected _from?: From;
-    protected _preArgs: Arg[] = [];
     protected _commands : IDockerCommand[] = [];
 
     constructor(protected name: string = 'S' + (++stageUniqueId).toString(16).padStart(8, '0')) {
@@ -43,17 +42,6 @@ export class Stage implements Fromable {
         return this._from;
     }
 
-    preArgs(): Arg[];
-    preArgs(arg: Arg, ...args: Arg[]): this;
-    preArgs(arg?: Arg, ...args: Arg[]): this | Arg[] {
-        if(arg) {
-            this._preArgs.push(arg, ...args);
-            return this;
-        }
-
-        return this._preArgs;
-    }
-
     commands() : IDockerCommand[];
     commands(cmd: IDockerCommand, ...commands : IDockerCommand[]) : this;
     commands(cmd?: IDockerCommand, ...commands : IDockerCommand[]) : this | IDockerCommand[] {
@@ -70,7 +58,7 @@ export class Stage implements Fromable {
             stage: this
         }
 
-        return [ ...this._preArgs.map(arg => arg.toDockerCommand()), this.from()!.toDockerCommand(buildContext), '', ...this._commands.map(cmd => cmd.toDockerCommand(buildContext) ) ].join('\n');
+        return [ this.from()!.toDockerCommand(buildContext), '', ...this._commands.map(cmd => cmd.toDockerCommand(buildContext) ) ].join('\n');
     }
 }
 
