@@ -37,7 +37,7 @@ describe('Dockerfile', () => {
             stage()
                 .from(image('node'))
                 .commands(run('node --version'))
-        ).toString()).toEqual(DEFAULT_PREAMBLE + 'ARG FOOBAR="baz"\n\nFROM node AS S00000003\n\nRUN node --version')
+        ).toString()).toEqual(DEFAULT_PREAMBLE + '\n\nARG FOOBAR="baz"\n\nFROM node AS S00000003\n\nRUN node --version')
     })
 
     it('should return stages', () => {
