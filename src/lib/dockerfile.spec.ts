@@ -40,6 +40,17 @@ describe('Dockerfile', () => {
         ).toString()).toEqual(DEFAULT_PREAMBLE + '\n\nARG FOOBAR="baz"\n\nFROM node AS S00000003\n\nRUN node --version')
     })
 
+    it('should generate dockerfile with multiple stages', () => {
+        expect(dockerfile().stages(
+            stage()
+                .from(image('node', { tag: '8' }))
+                .commands(run('node --version')),
+            stage()
+                .from(image('node', { tag: '10' }))
+                .commands(run('node --version'))
+        ).toString()).toEqual(DEFAULT_PREAMBLE + '\n\nFROM node:8 AS S00000004\n\nRUN node --version\n\nFROM node:10 AS S00000005\n\nRUN node --version')
+    })
+
     it('should return stages', () => {
         expect(dockerfile().stages()).toEqual([]);
     });

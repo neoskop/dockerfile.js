@@ -48,9 +48,9 @@ export default dockerfile().stages(...);
 export default () => dockerfile().stages(...);
 export default async () => dockerfile().stages(...);
 
-module.exports dockerfile().stages(...);
-module.exports () => dockerfile().stages(...);
-module.exports async () => dockerfile().stages(...);
+module.exports = dockerfile().stages(...);
+module.exports = () => dockerfile().stages(...);
+module.exports = async () => dockerfile().stages(...);
 ```
 
 ### Documentation
