@@ -1,6 +1,6 @@
 {
   "name": "@neoskop/dockerfile.js",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Write configurable, scriptable, reusable dockerfiles in Typescript or plain Javascript.",
   "keywords": [
     "docker",
@@ -28,8 +28,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage --coverage-reporters html --coverage-reporters lcov",
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
-    "publish-next": "npm run build && npm publish dist --tag next",
-    "publish-latest-only": "npm run build && npm publish dist",
+    "publish-next": "npm run build && (cd dist && npm publish --tag next)",
+    "publish-latest-only": "npm run build && (cd dist && npm publish)",
     "publish-latest": "npm run publish-latest-only && npm dist-tag add `jq '.name' package.json -r`@`jq '.version' package.json -r` next"
   },
   "bin": {
